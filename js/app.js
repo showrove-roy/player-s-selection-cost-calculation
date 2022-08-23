@@ -3,6 +3,7 @@ function getInputValue(elementID) {
     if (isNaN(inputValue)) {
         return inputValue = 0;
 
+
     } else {
         return inputValue;
     };
@@ -32,7 +33,8 @@ function getSetBtnValue(name, iD) {
         let allSelectBtns = document.getElementsByClassName('all-select-btn');
         for (allSelectBtn of allSelectBtns) {
             allSelectBtn.setAttribute("disabled", true);
-        }
+        };
+        alert('Selection Done');
     };
 
 }
@@ -49,7 +51,10 @@ document.getElementById('player-cost-btn').addEventListener('click', function ()
 });
 
 document.getElementById('total-cost-btn').addEventListener('click', function () {
-
+    const playerExpenses = getInputValue('per-player-cost');
+    const playerList = document.getElementById('player-list');
+    let playerListNumber = playerList.childElementCount;
+    let totalPlayerExpenses = playerExpenses * playerListNumber;
 
     const managerFee = getInputValue('manager-fee');
     const coachFee = getInputValue('coach-fee');
